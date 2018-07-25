@@ -6,14 +6,12 @@ public class MainClass {
 		
 		arr1 = new int[]{1,2,3,4,5};
 		arr2 = new int[5];
+				
+		System.arraycopy(arr1,0,arr2,0, arr1.length);
 		
-		for(int i=0;i<5;i++)
+		for(int i:arr2)
 		{
-			System.arraycopy(arr1,i,arr2,i,1);
-		}
-		for(int i=0;i<5;i++)
-		{
-			System.out.print( arr2[i]+"  ");
+			System.out.print( i+"  ");
 		}
 	}
 
