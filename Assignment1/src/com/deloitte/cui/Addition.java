@@ -9,9 +9,9 @@ public class Addition extends Arithmetic {
 	
 
 	@Override
-	public int calculate() {
+	public void calculate() {
 		
-		return num1+ num2;
+		System.out.println( num1+ num2);
 	}
 
 }

@@ -26,8 +26,8 @@ public class MainClass {
 		System.out.println("Enter 1 for additon , 2 for subtraction, 3 for multiplication, 4 for division");
 		int choice  = sc.nextInt();
 		
-		int ans = arr[choice].calculate();
-		System.out.println("Answer is "+ ans);
+		arr[choice].calculate();
+		//System.out.println("Answer is "+ ans);
 		sc.close();
 		
 	}

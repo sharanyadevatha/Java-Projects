@@ -8,11 +8,11 @@ public class Division extends Arithmetic {
 
 		 }
 	@Override
-	public int calculate() {
+	public void calculate() {
 		if(num1!=0 && num2 !=0)
-			return (int)num1/num2;
+			System.out.println( (double)num1/num2);
 		else {
-			//try {
+			
 			throw new ArithmeticException();
 		}
 		}

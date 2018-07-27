@@ -27,5 +27,5 @@ public abstract class Arithmetic {
 	{
 		
 	}
-	public abstract int calculate();
+	public abstract void calculate();
 }

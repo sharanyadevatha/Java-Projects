@@ -7,13 +7,11 @@ public class Subtraction extends Arithmetic {
 
 		 }
 	@Override
-	public int calculate() {
+	public void calculate() {
 		if(num1>num2)
-			return num1-num2;
+			System.out.println( num1-num2);
 		else if(num2>num1)
-				return num2-num1;
-		else
-			return 0;
-	}
+				System.out.println( num2-num1);
+		}
 
 }
