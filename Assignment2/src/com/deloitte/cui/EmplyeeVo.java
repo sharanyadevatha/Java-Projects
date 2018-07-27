@@ -40,7 +40,7 @@ public class EmplyeeVo {
 	@Override
 	public String toString() {
 		
-		return "Employee ID : "+empID+"Employee Name "+empName+"AnnualIncome"+annualIncome+"Income Tax"+incomeTax;
+		return "Employee ID : "+empID+"  Employee Name "+empName+"  AnnualIncome"+annualIncome+"   Income Tax"+incomeTax;
 }
 	@Override
 	public int hashCode() {
