@@ -22,7 +22,7 @@ class Voter{
 public class MainClass {
 	public static void main(String[] args) {
 	Voter voter = new Voter();
-	
+
 	try {
 		voter.register(17);
 		
@@ -31,6 +31,7 @@ public class MainClass {
 		
 		System.out.println(e.getMessage());
 		//e.printStackTrace();
-	}
+	
 }
+	}
 }
