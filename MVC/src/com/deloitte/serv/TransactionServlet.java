@@ -1,11 +1,14 @@
 package com.deloitte.serv;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class TransactionServlet
@@ -27,7 +30,10 @@ public class TransactionServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
+		HttpSession session = request.getSession(false);
 		
+		
+		if(session != null) {
 		if(action != null) {
 			if(action.equals("inbox")) {
 				request.getRequestDispatcher("inboxSDKJFHSD.jsp").forward(request, response);
@@ -43,6 +49,12 @@ public class TransactionServlet extends HttpServlet {
 				
 			}
 		}
+		}else {
+			PrintWriter out = response.getWriter();
+			response.setContentType("text/html");
+			out.println("Session Expired Please <a href = \"navig?page=login target=_parent\"> Click here </a>");
+		}
+			
 	}
 
 	/**

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Context>
+
+	<Resource name="jdbc/EmployeeDB" auth="Container"
+		type="javax.sql.DataSource" username="sharanya1" password="hello"
+		driverClassName="org.hsql.jdbcDriver"
+		url="jdbc:oracle:thin@desktop-m03s522:1522:teamdb" maxTotal="8"
+		maxIdle="4" />
+
+</Context>
