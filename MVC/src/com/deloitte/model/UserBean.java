@@ -8,6 +8,7 @@ public class UserBean implements Serializable {
 
 	private String firstName;
 	private String lastName;
+	UserDao user;
 
 	public String getFirstName() {
 		return firstName;
@@ -26,11 +27,11 @@ public class UserBean implements Serializable {
 	}
 
 	public UserBean() {
-		// TODO Auto-generated constructor stub
+		UserDao user = new UserDao();
 	}
 
 	// String userName = username;
-	UserDao user = new UserDao();
+	
 
 	public boolean authenticate(String username, String password) {
 		boolean val = user.validate(username, password);

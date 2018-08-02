@@ -23,22 +23,43 @@ public class UserDao implements Dao<User> {
 
 	public boolean validate(String username, String password) {
 
-		DataSource ds;
-		ResultSet rs;
+		DataSource ds= null;
+		ResultSet rs = null;
+		Connection conn = null;
+		Context initctx = null;
 		try {
-			Context initctx = new InitialContext();
+			initctx = new InitialContext();
 			ds = (DataSource) initctx.lookup("java:comp/env/jdbc/EmployeeDB");
-			Connection conn = ds.getConnection();
-			ps = conn.prepareStatement("SELECT firstaName, lastName FROM USERS where username=? and password=?");
+			conn = ds.getConnection();
+			ps = conn.prepareStatement("SELECT firstName, lastName FROM USERS where username=? and password=?");
 			ps.setString(1, username);
 			ps.setString(2, password);
 
 			rs = ps.executeQuery();
-			if (rs.next())
+			if (rs.next()) {
+				String firstName=rs.getString(1);
+				String lastName = rs.getString(2);
+				
 				return true;
-			else
-				return false;
+			}
+				//return false;
 
+		} catch (NamingException e) {
+						e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	finally {
+		try {
+			if(initctx != null)
+				initctx.close();
+			if(conn != null)
+				conn.close();
+			if(ps != null)
+				ps.close();
+			if(rs != null)
+				rs.close();
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -46,9 +67,9 @@ public class UserDao implements Dao<User> {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return false;
-
 	}
+		return false;
+}
 
 	@Override
 	public String get(long id) {

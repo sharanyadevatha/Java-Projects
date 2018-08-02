@@ -3,14 +3,63 @@
 
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
-   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-	<bean id="pointBean" class="com.deloitte.cui.Point" >
-	<property name="x" value="4"/>
-	<property name="y" value="8"/>
-	
-	
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<context:annotation-config />
+
+
+	<bean id="pointBean" class="com.deloitte.cui.Pointinit-method="
+		init " destroy-method="destroy" scope="prototype">
+		<property name="x" value="4" />
+		<property name="y" value="8" />
 	</bean>
+
+	<bean id="helloWorld" class="com.deloitte.cui.HelloWorld">
+		<property name="message1" value="Hello World!" />
+		<property name="message2" value="Hello Second World!" />
+	</bean>
+
+
+	<bean id="helloIndia" class="com.deloitte.cui.HelloIndia"
+		parent="helloWorld">
+		<property name="message1" value="Hello India!" />
+		<property name="message3" value="Namaste India" />
+	</bean>
+
+	<bean id="textEditorCDI" class="com.deloitte.cui.TextEditor">
+		<constructor-arg ref="spellChecker" />
+	</bean>
+	<bean id="textEditorCDI" class="com.deloitte.cui.TextEditor">
+		<constructor-arg ref="spellChecker" />
+		<property name="name" value="Text Editor Field" />
+	</bean>
+
+	<bean id="textEditorSDI" class="com.deloitte.cui.TextEditor">
+		<property name="spellChecker" ref="spellChecker" />
+		<property name="name" value="Text Editor Field" />
+	</bean>
+
+	<bean id="textEditorAWbN" class="com.deloitte.cui.TextEditor"
+		autowire="byName">
+		<property name="name" value="Text Editor Field" />
+	</bean>
+
+	<bean id="textEditorAWbT" class="com.deloitte.cui.TextEditor"
+		autowire="byType">
+		<property name="name" value="Text Editor Field" />
+	</bean>
+
+	<bean id="textEditorAWbC" class="com.deloitte.cui.TextEditor"
+		autowire="constructor">
+		<property name="name" value="Text Editor Field" />
+	</bean>
+
+	<bean id="spellChecker" class="com.deloitte.cui.SpellChecker"></bean>
+
 
 
 </beans>

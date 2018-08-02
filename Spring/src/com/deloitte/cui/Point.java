@@ -3,6 +3,10 @@ package com.deloitte.cui;
 public class Point {
 	private int x;
 	private int y;
+	
+	public void init() {
+		System.out.println("Initialized");
+	}
 
 	public int getX() {
 		return x;
@@ -24,6 +28,9 @@ public class Point {
 	public String toString() {
 
 		return x + " , " + y;
+	}
+	public void destroy() {
+		System.out.println("Destroyed");
 	}
 
 }

@@ -5,15 +5,8 @@
   
   
   <resource-ref>
-  <description>
-    Resource reference to a factory for java.sql.Connection
-    instances that may be used for talking to a particular
-    database that is configured in the 
-    configuration for the web application.
-    
-  </description>
-  <res-ref-name>
-    jdbc/TeamDB
+   <res-ref-name>
+    jdbc/EmployeeDB
   </res-ref-name>
   <res-type>
     javax.sql.DataSource
