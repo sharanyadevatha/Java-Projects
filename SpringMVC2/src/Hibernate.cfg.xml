@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-configuration SYSTEM 
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+
+		<property name="hibernate.dialect">
+			org.hibernate.dialect.Oracle10gDialect
+		</property>
+		
+		<property name="hibernate.archive.autodetection"> class</property>
+   		<property name="hibernate.show_sql">true</property>
+    	<property name="hibernate.format_sql">true</property>
+    	<property name="hbm2ddl.auto">create</property>
+    
+    	<property name="javax.persistence.schema-generation.database.action">create</property>
+    
+		<property name="hibernate.connection.driver_class">
+			oracle.jdbc.driver.OracleDriver
+		</property>
+
+		<!-- Assume test is the database name -->
+
+		<property name="hibernate.connection.url">
+			jdbc:oracle:thin:@desktop-m03s522:1522:teamdb
+		</property>
+
+		<property name="hibernate.connection.username">
+			sharanya1
+		</property>
+
+		<property name="hibernate.connection.password">
+			sharanya
+		</property>
+
+		<!-- List of XML mapping files -->
+		<mapping resource="Product.hbm.xml" />
+
+	</session-factory>
+
+</hibernate-configuration>
